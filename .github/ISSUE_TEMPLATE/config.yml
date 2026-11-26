@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 使用讨论 / Discussion
+    url: https://github.com/warm-flame-core/dsh-jlc-art-pcb/discussions
+    about: 想法、经验分享、作品展示、不确定是不是 bug 的问题，都适合放讨论区
+  - name: 嘉立创工艺规则
+    url: https://www.jlc.com/portal/vtechnology.html
+    about: 线宽/孔径/板厚等官方工艺能力，报价以下单页实时为准

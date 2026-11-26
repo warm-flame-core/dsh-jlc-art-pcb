@@ -26,7 +26,8 @@
     "icon.svg",
     "NOTICE",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "assets/icon-180.png"
   ],
   "keywords": [
     "dsh",
@@ -45,8 +46,8 @@
     "node": ">=20.17.0"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "*",
-    "@deepseek-ai/dsh-tools": "*"
+    "@deepseek-ai/cordis": ">=0.0.1-rc.1 <0.2.0-0 || >=0.2.0-rc.1 <0.3.0-0",
+    "@deepseek-ai/dsh-tools": ">=0.0.1-rc.1 <0.2.0-0 || >=0.2.0-rc.1 <0.3.0-0"
   },
   "dsh": {
     "bundle": {

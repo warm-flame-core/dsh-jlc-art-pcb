@@ -1,0 +1,97 @@
+name: Bug 报告 / Bug report
+description: 生成结果不对、插件报错、EDA 写入失败等异常现象
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！**排查图形类问题最需要的是原始素材**，请务必在下方上传。
+
+        提交前请先：
+        1. 升级到最新版（`dsh plugin --profile <你的 profile> list` 查看版本）
+        2. 搜索已有 issue，避免重复
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 现象描述，越具体越好（报错原文请贴全文，不要截图片段）
+      placeholder: 例如：运行 jlc_build_artwork 后报 ModuleNotFoundError: No module named 'PIL'
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望的行为
+      placeholder: 应该生成异形板框 + 金色线稿，实际……
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤（尽量最小化）
+      placeholder: |
+        1. 准备一张图（见下方附件）
+        2. 调用 jlc_build_artwork，参数：widthMm=60, style=tritone, finish=enig
+        3. 观察 final.png / EDA 画布
+    validations:
+      required: true
+
+  - type: upload
+    id: source-image
+    attributes:
+      label: 原始素材图（强烈建议）
+      description: |
+        生成/分色类问题**没有原图基本无法定位**。请上传你实际使用的那张图，
+        或提供可访问的链接。
+    validations:
+      required: false
+
+  - type: upload
+    id: result-image
+    attributes:
+      label: 实际产出（效果图或 EDA 截图）
+      description: 上传 final.png 或 EDA 画布截图，并说明哪里不对
+    validations:
+      required: false
+
+  - type: input
+    id: dsh-version
+    attributes:
+      label: DeepSeek Harness 版本
+      description: 终端跑 `dsh --version`，或看设置页
+      placeholder: 如 0.2.2-rc.5
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: 本插件版本
+      description: 设置 → 插件列表里看，或 `dsh plugin --profile <profile> list`
+      placeholder: 如 0.1.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: env
+    attributes:
+      label: 环境自检结果
+      description: 运行 `jlc_check_environment` 工具，把输出贴在这里
+      placeholder: |
+        ✓ Python 运行时 3.12.14
+        ✗ Pillow  未安装
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 完整日志
+      description: 报错栈、命令行输出都贴全文
+      render: shell
+    validations:
+      required: false

@@ -1,0 +1,50 @@
+name: 功能建议 / Feature request
+description: 新的造型风格、工艺选项、下单参数支持等
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提需求前可以先看看 [SKILL.md](skills/jlc-art-pcb/SKILL.md) 里已有的风格与工艺，
+        避免重复。
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 你想解决什么问题
+      description: 描述使用场景，而不是直接说实现方案
+      placeholder: 我想做一张 A5 尺寸的摆件，但免费券只到 10×10cm，想知道有没有别的路子
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你期望的行为
+      placeholder: 希望能提供一个 --tile 选项，把一张大图拆成 4 块拼起来
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 涉及哪一块
+      options:
+        - 造型风格 / 分色算法
+        - 工艺约束（OSP / 沉金 / 彩印）
+        - EDA 落板
+        - 下单参数
+        - 性能 / 易用性
+        - 文档
+        - 其他
+    validations:
+      required: true
+
+  - type: upload
+    id: sample
+    attributes:
+      label: 参考素材（可选）
+      description: 有示例图会更容易理解你想要什么
+    validations:
+      required: false
