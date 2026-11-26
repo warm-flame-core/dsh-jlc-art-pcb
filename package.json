@@ -1,0 +1,69 @@
+{
+  "name": "dsh-jlc-art-pcb",
+  "version": "0.1.0",
+  "description": "嘉立创 PCB 艺术板生成工具链 —— Skill + 工艺校验工具，面向二次元/图案装饰板",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "tools/jlc_art.py",
+    "tools/project.py",
+    "tools/analyze.py",
+    "tools/canvas_audit.py",
+    "tools/doctor.py",
+    "cordis.patch.yml",
+    "skills/",
+    "locale/*.json",
+    "docs/",
+    "icon.svg",
+    "NOTICE",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "pcb",
+    "jlcpcb",
+    "easyeda",
+    "art-pcb",
+    "silkscreen",
+    "enigma",
+    "creative"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.1 <0.3.0-0",
+    "node": ">=20.17.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-tools": "*"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/validate.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOURNAME/dsh-jlc-art-pcb.git"
+  },
+  "homepage": "https://github.com/YOURNAME/dsh-jlc-art-pcb#readme",
+  "bugs": {
+    "url": "https://github.com/YOURNAME/dsh-jlc-art-pcb/issues"
+  },
+  "author": "dsh-jlc-art-pcb contributors"
+}

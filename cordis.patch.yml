@@ -1,0 +1,27 @@
+# dsh-jlc-art-pcb bundle patch
+#
+# 安装本包后自动生效两件事：
+#   1. jlc-art-pcb-tools —— 注册 validate_jlc_constraints 工具
+#   2. jlc-art-skill-fs  —— 独立 skill provider，只扫本包内的 skills/ 目录
+#
+# 为什么用独立 provider 而不是改主 skill-filesystem：
+#   patch 对某行 config 是**整块替换、不深合并**，改主实例就得把它的所有键重述一遍，
+#   而不同 DSH 版本的默认键不一样，跨版本会炸。独立实例只声明自己的键，最稳。
+#
+# 路径为什么用 !!js：
+#   customSkillDirs 里的相对路径按 **process.cwd()** 解析，不是按本 patch 文件位置。
+#   Desktop 的 cwd 是应用工作目录，写相对路径必然找不到。必须在激活时算绝对路径。
+#   baseUrl = profile 目录的 file:// URL，故 node_modules/<本包>/skills 即包内路径。
+#   用 fileURLToPath 而非 pathname：Windows 下 pathname 会产生 /C:/ 双盘符。
+- insert:
+    - id: jlc-art-pcb-tools
+      name: 'dsh-jlc-art-pcb'
+      config: {}
+
+    - id: jlc-art-skill-fs
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: jlc-art
+        includeDefaultRoots: false
+        customSkillDirs:
+          - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('node_modules/dsh-jlc-art-pcb/skills', baseUrl))"

@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "JLCPCB art PCB",
+    "description": "JLCPCB tooling for decorative PCB art: a manufacturing-constraint validator tool plus a domain-knowledge skill covering the OSP bare-copper and ENIG multicolour-silkscreen branches.",
+    "detail": "docs/DETAIL.md"
+  }
+}
