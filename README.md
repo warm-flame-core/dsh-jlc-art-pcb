@@ -12,6 +12,18 @@
 > 中：OSP 裸铜（无面积限制，可大面积露铜）
 > 右：异形板框 + 挂孔
 
+## 安装
+
+```bash
+# npm（推荐，预构建，免构建授权）
+dsh plugin --profile web add dsh-jlc-art-pcb
+
+# 或直接从 GitHub
+dsh plugin --profile web add warm-flame-core/dsh-jlc-art-pcb
+```
+
+> `web` 换成你的 profile 名（如 `desktop`）。
+
 ## 装什么
 
 | 组件 | 说明 |
