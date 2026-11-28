@@ -14,12 +14,16 @@
 
 1. 先开 Issue 说明你要改什么、为什么。涉及行为变化或新增依赖的，先在 Issue 里讨论。
 2. Fork 本仓库，在分支上开发。
-3. 改动前先跑一遍现有测试：
+3. 改动前先跑一遍自检：
 
 ```bash
-node tests/validate.test.mjs        # 工艺校验器，28 项
-python tools/test_generic.py <图片目录> <输出目录>   # 通用性回归
+npm run build          # src/ -> lib/，必须无 diff
+npm pack --dry-run     # 核对打包边界
 ```
+
+> 完整的回归测试（工艺校验器 28 项、6 张真实素材的通用性回归）维护在
+> 维护者的独立工作区，**不在本仓库**——分发仓库只放用户真正需要的东西。
+> 提交前请至少保证 `npm run build` 无 diff、`npm pack --dry-run` 文件清单正确。
 
 4. 构建后再提交（`lib/` 需要入库，因为从 GitHub 安装不会跑构建）：
 
